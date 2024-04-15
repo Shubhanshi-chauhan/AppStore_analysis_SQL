@@ -2,7 +2,7 @@
 This analysis covers various aspects including app categories, popular features, user preferences, and emerging trends.
 ![4950546](https://github.com/Shubhanshi-chauhan/AppStore_analysis_SQL/assets/154693626/d012ff75-e58c-417c-83f4-09ba3911ea96)
 
-This document provides a comprehensive analysis of the Apple Store app market, aimed at aiding developers in creating better apps by considering market interest and trends. The analysis covers various aspects including app categories, popular features, user preferences, and emerging trends.
+It provides a comprehensive analysis of the Apple Store app market, aimed at aiding developers in creating better apps by considering market interest and trends. The analysis covers various aspects including app categories, popular features, user preferences, and emerging trends.
 ## Task:
 1. Project Context
 2. Connect to DataBase
