@@ -24,12 +24,12 @@ Select count(DISTINCT id) AS UniqueIDs
 from Applestore_description_combined
 
 
---check fro missing values--AppleStore
+--check for missing values--AppleStore
 select count(*) AS Missingvalues
 from AppleStore
 where track_name IS NULL Or user_rating is null OR prime_genre is null
 
---check fro missing values Applestore_description_combined tableAppleStore
+--check for missing values Applestore_description_combined table
 select count(*) AS Missingvalues
 from Applestore_description_combined
 where app_desc IS NULL
@@ -42,7 +42,7 @@ Group BY prime_genre
 Order by NumApps DESC
 
 
---Get an overview of the Apps ratingsAppleStore
+--Get an overview of the Apps ratings
 Select min(user_rating) As MinRating,
 		max(user_rating) As Maxrating,
         avg(user_rating) AS AvgRating
@@ -70,7 +70,7 @@ From AppleStore
 Group by language_bucket
 Order by avg_rating desc
 
---check genres with low ratingsAppleStore
+--check genres with low ratings
 
 Select prime_genre, avg(user_rating) As avg_rating
 from AppleStore
@@ -78,14 +78,14 @@ Group by prime_genre
 order by avg_rating asc
 limit 10
 
---check if there is corelation between the length of the app description and the user ratingAppleStore
+--check if there is corelation between the length of the app description and the user rating
 
 Select CASE
-			when length(B.app_desc) <500 THEN 'short'
-            When length(B.app_desc) BETWEEN 500 and 1000 THEN 'Medium'
-            Else 'Long'
-           End As description_length_bucket,
-           avg(A.user_rating) AS average_rating
+	when length(B.app_desc) <500 THEN 'short'
+        When length(B.app_desc) BETWEEN 500 and 1000 THEN 'Medium'
+        Else 'Long'
+        End As description_length_bucket,
+        avg(A.user_rating) AS average_rating
 
 FROM
 	AppleStore as A
@@ -98,12 +98,12 @@ Order by average_rating DESC
 
 --Interesting insight-apps having long description has higher rating
 
---check the top-rated apps for each genreAppleStore
+--check the top-rated apps for each genre
 
 Select 
 	prime_genre,
-    track_name,
-    user_rating
+       track_name,
+       user_rating
 From (
   Select
   	prime_genre,
@@ -116,13 +116,13 @@ From (
   WHERE
   A.rank = 1
   
-  --Insights
-  --paid apps have better rating 
+  --Summary:
+  --Paid apps have better rating 
   --Apps supporting between 10 and 30 languages have better ratings 
   --Finance and book apps have low ratings (more need to create app for market penetration)
   --Apps with a longer description have bettter ratings 
-  --a new app should aim for an average rating above 3.5 
-  -- games and enter have high comptetion (high demand)
+  --A new app should aim for an average rating above 3.5 
+  --Games and entertainment have high comptetion (high demand)
   
 	
 
